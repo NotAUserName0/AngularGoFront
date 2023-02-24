@@ -1,0 +1,9 @@
+<div *ngIf="data">
+  <p style="color: red;">No data</p>
+</div>
+<div *ngFor="let user of users">
+  <p>User: {{user.ID}}</p>
+  <p>Name: {{user.name}}</p>
+  <p>Grade: {{user.grade}}</p>
+  <hr>
+</div>
