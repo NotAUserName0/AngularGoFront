@@ -52,6 +52,7 @@ export class AddComponent {
   }
 
   remainingSeconds: number = 10;
+  
   countdown(){
     const interval = setInterval(
       () => {
