@@ -34,7 +34,7 @@ export class AddComponent {
           //console.log(result)
           if(result['success'] == "true"){
             this.added = true;
-            this.countdown();
+            this.router.navigate(['']);
           }else{
             if(result['no_data'] == "true"){
               this.error = true;
@@ -49,23 +49,6 @@ export class AddComponent {
         }
       );
     }
-  }
-
-  remainingSeconds: number = 10;
-  
-  countdown(){
-    const interval = setInterval(
-      () => {
-        this.remainingSeconds--;
-        if(this.remainingSeconds <= 0) {
-          //clearInterval(interval);
-          this.router.navigate(['']);
-          //console.log("Countdown finished");
-        } else {
-          //console.log(`Remaining time: ${this.remainingSeconds} seconds`);
-        }
-      },1000
-    )
   }
 
 }

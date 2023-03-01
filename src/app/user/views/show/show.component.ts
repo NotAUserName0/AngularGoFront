@@ -13,6 +13,7 @@ export class ShowComponent implements OnInit {
   users : User[];
   data:boolean;
   aux:any;
+  errorMsg:any;
 
   constructor(private userService : UserService){}
 
@@ -24,6 +25,7 @@ export class ShowComponent implements OnInit {
 
     this.userService.getPosts().subscribe(
       result => {
+
         this.aux = result['no_data']
         //console.log(this.aux)
         if(this.aux == 'true'){
@@ -34,7 +36,11 @@ export class ShowComponent implements OnInit {
           this.users = result
         }
 
+      }, (error) => {
+        console.log(error);
+        this.errorMsg = error;
       }
+
     )
   }
 
