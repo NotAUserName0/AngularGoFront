@@ -1,12 +1,24 @@
 <br>
 <hr>
 <br>
-<form>
-  <select name="" id="" [formGroup]="delUser" (ngSubmit)="delUser()">
-    <option value="default">---</option>
-    <option *ngFor="let user of users" [value]="user">
-      {{user.ID}}
-    </option>
-    <button >Eliminar</button>
-  </select>
-</form>
+<div *ngIf="data; else elseBlock">
+  <p style="color: red;">No data</p>
+</div>
+<div>
+  <p style="color: red;">{{errorMsg}}</p>
+</div>
+
+<ng-template #elseBlock>
+  <form [formGroup]="delUsr" (ngSubmit)="delUser()">
+    <select name="" id="" formControlName="user">
+      <option value="" disabled> Choose an id </option>
+      <option *ngFor="let user of users" [ngValue]="user">
+        {{user.ID}}
+      </option>
+    </select>
+    <br>
+    <br>
+    <button type="submit"> Eliminar </button>
+  </form>
+</ng-template>
+<hr>
