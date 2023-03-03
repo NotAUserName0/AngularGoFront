@@ -1,1 +1,18 @@
-<p>update works!</p>
+
+
+<form [formGroup]="modUsr" (ngSubmit)="modUser()" style="display:grid; width:30%; margin: 10px;"
+  *ngFor="let user of users" >
+  <label for="name">Name</label>
+  <input type="text" name="name" value="{{user.name}}" formControlName="name">
+  <div *ngIf="name">
+    <p style="color:red;">Error en nombre</p>
+  </div>
+
+  <label for="grade">Grade</label>
+  <input type="number" name="grade" value="{{user.grade}}" formControlName="grade">
+  <div *ngIf="grade">
+    <p style="color:red;">Error en grado</p>
+  </div>
+
+  <button type="submit"> Ingresar Usuario </button>
+</form>
