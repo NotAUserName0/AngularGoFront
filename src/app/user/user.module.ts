@@ -8,6 +8,7 @@ import { DeleteComponent } from './views/delete/delete.component';
 import { UpdateComponent } from './views/update/update.component';
 import { ShowOneComponent } from './views/show-one/show-one.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GetUpComponent } from './views/get-up/get-up.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddComponent,
     DeleteComponent,
     UpdateComponent,
-    ShowOneComponent
+    ShowOneComponent,
+    GetUpComponent
   ],
   imports: [
     CommonModule,

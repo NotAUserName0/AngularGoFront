@@ -1,18 +1,19 @@
+<br>
+<hr>
+<br>
+<div>
+  <section>
+    <div *ngFor="let user of users;">
+      {{user.name}}
+      <button (click)="guardarDato(user);">
+        <i class="material-symbols-outlined">edit</i>
+      </button>
+    </div>
+  </section>
+  <br>
+  <hr>
+  <section>
+    <app-get-up id="up" [user] = "userID" style="visibility: hidden;"></app-get-up>
+  </section>
 
-
-<form [formGroup]="modUsr" (ngSubmit)="modUser()" style="display:grid; width:30%; margin: 10px;"
-  *ngFor="let user of users" >
-  <label for="name">Name</label>
-  <input type="text" name="name" value="{{user.name}}" formControlName="name">
-  <div *ngIf="name">
-    <p style="color:red;">Error en nombre</p>
-  </div>
-
-  <label for="grade">Grade</label>
-  <input type="number" name="grade" value="{{user.grade}}" formControlName="grade">
-  <div *ngIf="grade">
-    <p style="color:red;">Error en grado</p>
-  </div>
-
-  <button type="submit"> Ingresar Usuario </button>
-</form>
+</div>

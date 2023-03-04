@@ -17,6 +17,7 @@ export class UpdateComponent implements OnInit {
   errorMsg:any;
   name:boolean;
   grade:boolean;
+  userID:any;
 
   constructor(private userService : UserService, private router : Router){}
 
@@ -47,13 +48,9 @@ export class UpdateComponent implements OnInit {
     )
   }
 
-  modUsr = new FormGroup({
-    name: new FormControl( '', Validators.required),
-    grade : new FormControl( '', Validators.required)
-  })
-
-  modUser(){
-
+  guardarDato(user:User){
+    this.userID = user;
+    document.getElementById('up').style.visibility='visible';
   }
 
 }
