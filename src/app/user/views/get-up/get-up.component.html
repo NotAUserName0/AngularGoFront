@@ -1,7 +1,8 @@
-<p>get-up works!</p>
-
-<form [formGroup]="usr" (onSubmit)="enviar();">
-  
+<div *ngIf="invalid">
+  <p style="color:red;">Rellena los datos</p>
+</div>
+<form [formGroup]="usr" (ngSubmit)="enviar()">
+  <input type="text" formControlName="name">
+  <input type="number" formControlName="grade">
+  <button type="submit">Modificar</button>
 </form>
-
-

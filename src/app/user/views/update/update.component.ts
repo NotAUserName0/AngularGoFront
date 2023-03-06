@@ -13,7 +13,7 @@ export class UpdateComponent implements OnInit {
 
   users : User[];
   aux:any;
-  data:boolean;
+  data:boolean =false;
   errorMsg:any;
   name:boolean;
   grade:boolean;
@@ -36,8 +36,7 @@ export class UpdateComponent implements OnInit {
           //console.log("No data")
           this.data = true
         }else{
-          //console.log(result)
-          this.users = result
+          this.users = result;
         }
 
       }, (error) => {
@@ -52,5 +51,7 @@ export class UpdateComponent implements OnInit {
     this.userID = user;
     document.getElementById('up').style.visibility='visible';
   }
+
+
 
 }

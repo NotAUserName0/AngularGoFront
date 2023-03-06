@@ -28,7 +28,7 @@ export class AddComponent {
       this.validUser = true;
     }else{
       this.validUser = false;
-      //console.log(JSON.stringify(this.addUser.value));
+      console.log(JSON.stringify(this.addUser.value));
       this.userService.pushUser(JSON.stringify(this.addUser.value)).subscribe(
         result => {
           //console.log(result)

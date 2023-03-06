@@ -2,18 +2,23 @@
 <hr>
 <br>
 <div>
-  <section>
-    <div *ngFor="let user of users;">
-      {{user.name}}
-      <button (click)="guardarDato(user);">
-        <i class="material-symbols-outlined">edit</i>
-      </button>
-    </div>
-  </section>
-  <br>
-  <hr>
-  <section>
-    <app-get-up id="up" [user] = "userID" style="visibility: hidden;"></app-get-up>
-  </section>
+  <div *ngIf="data; else elseBlock">
+    <p style="color: red;">No data</p>
+  </div>
 
+  <ng-template #elseBlock>
+    <section>
+      <div *ngFor="let user of users;">
+        {{user.name}}
+        <button (click)="guardarDato(user);">
+          <i class="material-symbols-outlined">edit</i>
+        </button>
+      </div>
+    </section>
+    <br>
+    <hr>
+    <section>
+      <app-get-up id="up" [user]="userID" style="visibility: hidden;"></app-get-up>
+    </section>
+  </ng-template>
 </div>

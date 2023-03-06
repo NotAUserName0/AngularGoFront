@@ -52,4 +52,10 @@ export class UserService {
     )
   }
 
+  modUser(id:any,usr:any):Observable<User>{
+    return this.http.put<User>(`${this.URL}put/${id}`,usr,this.httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+
 }
