@@ -1,8 +1,18 @@
 <div *ngIf="invalid">
   <p style="color:red;">Rellena los datos</p>
 </div>
+<div *ngIf="success">
+  <p style="color:red;">Cambia los datos!</p>
+</div>
+
 <form [formGroup]="usr" (ngSubmit)="enviar()">
   <input type="text" formControlName="name">
+  <div *ngIf="name">
+    <p style="color:red;">Error en nombre</p>
+  </div>
   <input type="number" formControlName="grade">
+  <div *ngIf="grade">
+    <p style="color:red;">Error en grado</p>
+  </div>
   <button type="submit">Modificar</button>
 </form>

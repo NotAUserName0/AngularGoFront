@@ -16,6 +16,7 @@ export class GetUpComponent implements OnChanges{
   error:boolean;
   name:boolean;
   grade:boolean;
+  success:boolean;
 
   usr = new FormGroup({
     name: new FormControl( '' ,Validators.required),
@@ -58,6 +59,9 @@ export class GetUpComponent implements OnChanges{
               }
             }
           }
+        }, (error) => {
+         this.success = true;
+
         }
       );
     }

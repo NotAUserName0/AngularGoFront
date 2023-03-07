@@ -40,6 +40,12 @@ export class UserService {
     );
   }
 
+  getUser(id:any):Observable<User>{
+    return this.http.get<User>(`${this.URL}get/${id}`).pipe(
+      catchError(this.handleError)
+    )
+  }
+
   pushUser(usr:any):Observable<User>{
     return this.http.post<User>(`${this.URL}add`,usr,this.httpOptions).pipe(
       catchError(this.handleError)
@@ -57,5 +63,7 @@ export class UserService {
       catchError(this.handleError)
     )
   }
+
+
 
 }

@@ -1,12 +1,10 @@
-<a [routerLink]="['add']">Add</a>
-<hr>
-<a [routerLink]="['delete']">Delete</a>
-<hr>
-<a [routerLink]="['update']">Update</a>
-<hr>
-<a [routerLink]="['showOne']">Get One</a>
-<hr>
-<a [routerLink]="['']">Mostrar</a>
+<h1 class="tittle">CRUD ANGULAR</h1>
+<div class="nav">
 
-
+  <a [routerLink]="['add']"><button type="button" class="btn btn-primary">Add</button></a>
+  <a [routerLink]="['delete']"><button type="button" class="btn btn-primary">Delete</button></a>
+  <a [routerLink]="['update']"><button type="button" class="btn btn-primary">Update</button></a>
+  <a [routerLink]="['showOne']"><button type="button" class="btn btn-primary">Get One</button></a>
+  <a [routerLink]="['']"><button type="button" class="btn btn-primary">Regresar</button></a>
+</div>
 <router-outlet></router-outlet>

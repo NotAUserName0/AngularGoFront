@@ -1,1 +1,24 @@
-<p>show-one works!</p>
+<br>
+<hr>
+<hr>
+
+<div *ngIf="data; else elseBlock">
+  <p style="color: red;">No data</p>
+</div>
+
+<ng-template #elseBlock>
+  <form [formGroup]="searUsr" (ngSubmit)="serUser()">
+    <label for="">Inserta un id</label>
+    <input type="number" formControlName="user">
+    <button type="submit"> Buscar </button>
+  </form>
+</ng-template>
+
+<div *ngIf="errorMsg;">
+  <p style="color: red;">No existe el dato!</p>
+</div>
+
+<div>
+  <p id="name"></p>
+  <p id="grade"></p>
+</div>

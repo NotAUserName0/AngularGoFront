@@ -1,0 +1,34 @@
+.tittle{
+  text-align: center;
+  font-weight: 800;
+}
+
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto 20px auto;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+button{
+  margin: 0px 10px 0px 10px;
+  min-width: 100px;
+  text-align: center;
+  background-color: #8ACFFD !important;
+  border-color: #8ACFFD;
+}
+
+a:hover > button{
+  color: #8ACFFD !important;
+}
+
+.btn:hover{
+  background-color: white !important;
+  border-color: #8ACFFD;
+}
+
