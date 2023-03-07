@@ -1,0 +1,18 @@
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0px 0px 0px;
+}
+
+button{
+  margin-top: 20px;
+}
+
+.swal2-confirm{
+  background-color: white !important;
+}
+
+.swal2-default-outline{
+  background-color: white !important;
+}

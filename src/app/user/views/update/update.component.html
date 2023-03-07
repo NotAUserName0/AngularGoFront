@@ -9,10 +9,12 @@
   <ng-template #elseBlock>
     <section>
       <div *ngFor="let user of users;">
-        {{user.name}}
-        <button (click)="guardarDato(user);">
-          <i class="material-symbols-outlined">edit</i>
-        </button>
+        <div id="users">
+          <div>{{user.name}}</div>
+          <button (click)="guardarDato(user);">
+            <mat-icon fontIcon="edit"> </mat-icon>
+          </button>
+        </div>
       </div>
     </section>
     <br>

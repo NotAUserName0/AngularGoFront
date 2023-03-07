@@ -36,6 +36,8 @@ export class ShowOneComponent {
       },
       (error) => {
         this.errorMsg = true;
+        document.getElementById('name').innerHTML = "";
+        document.getElementById('grade').innerHTML = "";
       }
 
     );

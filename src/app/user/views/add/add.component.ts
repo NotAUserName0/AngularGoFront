@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -10,7 +11,6 @@ import { UserService } from '../../services/user.service';
 })
 export class AddComponent {
 
-  validUser:boolean;
   added:boolean;
   error:boolean;
   name:boolean;
@@ -25,30 +25,52 @@ export class AddComponent {
 
   userAdd(){
     if(this.addUser.invalid){
-      this.validUser = true;
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You didn´t complete the form!',
+        confirmButtonColor: 'Red',
+      });
     }else{
-      this.validUser = false;
-      console.log(JSON.stringify(this.addUser.value));
       this.userService.pushUser(JSON.stringify(this.addUser.value)).subscribe(
         result => {
-          //console.log(result)
-          if(result['success'] == "true"){
+          if(result['success'] === "true"){
             this.added = true;
+            Swal.fire({
+              icon: 'success',
+              title: 'Registrado!',
+              timer: 2000,
+              showCancelButton: false,
+              showConfirmButton: false
+            });
             this.router.navigate(['']);
           }else{
-            if(result['no_data'] == "true"){
-              this.error = true;
-              if(result['name'] == "false"){
-                this.name = true;
-              }
-              if(result['grade'] <= 0){
-                this.grade = true;
-              }
+            if(result['no_data'] == "true"){ //error from server when not all data arrived
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Verify data!',
+              });
             }
           }
+        }, (error) => {
+          console.log(error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Nothing added!',
+          });
         }
       );
     }
   }
 
+
+  main(){
+    console.log("change");
+  }
+
 }
+
+
+

@@ -7,6 +7,7 @@ import { UserComponent } from './user/user.component';
 import { NoPageFoundComponent } from './mainComponents/no-page-found/no-page-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
     AppComponent,

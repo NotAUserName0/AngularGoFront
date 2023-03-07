@@ -9,6 +9,7 @@ import { UpdateComponent } from './views/update/update.component';
 import { ShowOneComponent } from './views/show-one/show-one.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GetUpComponent } from './views/get-up/get-up.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { GetUpComponent } from './views/get-up/get-up.component';
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ]
 })
 export class UserModule { }
