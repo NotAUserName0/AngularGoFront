@@ -4,12 +4,54 @@ button{
 
 }
 
-.users{
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
+.box{
+  margin: 0px 50px 0px 0px;
 }
 
+button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 0px 0px 20px;
+  min-width: 100px;
+  background-color: #E7B10A;
+  border-radius: 20px;
+  border: 1px solid #E7B10A;
+  color: white;
+  transition: 0.3s;
+}
 
+button:hover{
+  background-color: white;
+  color: black;
+}
 
+.obj{
+  margin: 20px 0px 20px 0px;
+}
 
+.name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+}
+
+.edit{
+  margin: 100px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noData{
+  font-size: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  margin: auto auto auto auto;
+}

@@ -1,26 +1,22 @@
-<br>
-<hr>
-<br>
-<div>
-  <div *ngIf="data; else elseBlock">
-    <p style="color: red;">No data</p>
-  </div>
+<div *ngIf="data; else elseBlock">
+  <p class="noData" style="color: red;">No data</p>
+</div>
 
-  <ng-template #elseBlock>
-    <section>
+<ng-template #elseBlock>
+  <div class="edit">
+    <section class="box">
       <div *ngFor="let user of users;">
-        <div id="users">
-          <div>{{user.name}}</div>
-          <button (click)="guardarDato(user);">
+        <div style="display: flex;" class="obj">
+          <div class="name" style="display:flex; align-items: center;">{{user.name}}</div>
+          <button type="button" (click)="guardarDato(user);"  >
             <mat-icon fontIcon="edit"> </mat-icon>
           </button>
         </div>
       </div>
     </section>
-    <br>
-    <hr>
-    <section>
+
+    <section class="get-up">
       <app-get-up id="up" [user]="userID" style="visibility: hidden;"></app-get-up>
     </section>
-  </ng-template>
-</div>
+  </div>
+</ng-template>

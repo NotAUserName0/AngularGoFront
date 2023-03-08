@@ -1,0 +1,32 @@
+.box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 100px 0px 20px 0px;
+}
+
+form {
+  width: 20%;
+  text-align: center;
+}
+
+span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 10px 0px;
+}
+
+input{
+  width: 20%;
+  margin: 0px 0px 0px 20px;
+}
+
+.btn{
+  width: 50%;
+}
+
+.btn:hover{
+  background-color: white;
+  color: #0dcaf0;
+}

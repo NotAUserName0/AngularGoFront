@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-show-one',
@@ -13,7 +14,7 @@ export class ShowOneComponent {
   user : User;
   data:boolean;
   aux:any;
-  errorMsg:any;
+
   searUsr = new FormGroup({
     user: new FormControl('',Validators.required)
   })
@@ -25,22 +26,36 @@ export class ShowOneComponent {
   }
 
   serUser(){
-    console.log(this.searUsr.value.user)
-    this.userService.getUser(this.searUsr.value.user).subscribe(
-      result => {
-        console.log(result)
-        this.errorMsg = false;
-        this.user = result
-        document.getElementById('name').innerHTML = this.user.name;
-        document.getElementById('grade').innerHTML = this.user.grade.toString();
-      },
-      (error) => {
-        this.errorMsg = true;
-        document.getElementById('name').innerHTML = "";
-        document.getElementById('grade').innerHTML = "";
-      }
 
-    );
+    if(this.searUsr.valid){
+      this.userService.getUser(this.searUsr.value.user).subscribe(
+        result => {
+          console.log(result)
+          this.user = result
+
+          Swal.fire({
+            icon: 'success',
+            title: 'Found it!',
+            html: '<p> User: '+this.user.name +' <br> Grade: '+this.user.grade+'</p>',
+          });
+        },
+        (error) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'ID does not exist!',
+          });
+        }
+
+      );
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter some ID!',
+      });
+    }
+
   }
 
 }

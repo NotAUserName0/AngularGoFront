@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 
@@ -12,15 +13,13 @@ import { UserService } from '../../services/user.service';
 export class GetUpComponent implements OnChanges{
 
   @Input() user:User;
-  invalid:boolean;
   error:boolean;
   name:boolean;
   grade:boolean;
-  success:boolean;
 
   usr = new FormGroup({
-    name: new FormControl( '' ,Validators.required),
-    grade: new FormControl( '' ,Validators.required)
+    name: new FormControl( 'n' ,Validators.required),
+    grade: new FormControl( 'n' ,Validators.required)
   });
 
 
@@ -28,25 +27,35 @@ export class GetUpComponent implements OnChanges{
 
   ngOnChanges(changes: SimpleChanges): void {
     try{
-      //console.log(this.user);
       this.usr.controls.name.setValue(this.user.name);
       let gr = this.user.grade.toString();
       this.usr.controls.grade.setValue(gr);
     }catch(e : any){
-      console.log(e);
+
     }
   }
 
   enviar(){
-    //console.log(JSON.stringify(this.usr.value));
+
     if(this.usr.invalid){
-      this.invalid = true;
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Fill all data!',
+        confirmButtonColor: 'Red',
+      });
     }else{
       this.userService.modUser(this.user.ID, JSON.stringify(this.usr.value)).subscribe(
         result => {
            console.log(result)
            if(result['success']){
-            alert("Modificado!");
+            Swal.fire({
+              icon: 'success',
+              title: 'Modified!',
+              timer: 2000,
+              showCancelButton: false,
+              showConfirmButton: false
+            });
             this.router.navigate(['']);
           }else{
             if(result['no_data'] == "true"){
@@ -60,7 +69,12 @@ export class GetUpComponent implements OnChanges{
             }
           }
         }, (error) => {
-         this.success = true;
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Same data, change it please!',
+            confirmButtonColor: 'Red',
+          });
 
         }
       );
