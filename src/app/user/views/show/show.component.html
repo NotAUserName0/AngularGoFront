@@ -1,13 +1,20 @@
 <div *ngIf="data">
-  <p style="color: red;">No data</p>
+  <p class="noData">No data</p>
 </div>
 
-<div>
-  <p style="color: red;">{{errorMsg}}</p>
-</div>
-<div *ngFor="let user of users">
-  <p>User: {{user.ID}}</p>
-  <p>Name: {{user.name}}</p>
-  <p>Grade: {{user.grade}}</p>
-  <hr>
-</div>
+<table class="container table table-hover">
+  <thead>
+    <tr style="border-bottom: 2px solid black; ">
+      <th scope="col" style="border-right: 2px solid black;">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Grade</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of users">
+    <tr>
+      <th scope="row" style="border-right: 2px solid black;">{{user.ID}}</th>
+      <td>{{user.name}}</td>
+      <td>{{user.grade}}</td>
+    </tr>
+  </tbody>
+</table>
